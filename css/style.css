@@ -393,6 +393,7 @@ ul{
 .header-top__burger{
     display: none;
     position: relative;
+    cursor: pointer;
     width: 20px;
     transition: .4s all;
     height: 20px;
@@ -438,16 +439,18 @@ ul{
     background: linear-gradient(0deg, rgba(238, 177, 112, 0.3), rgba(238, 177, 112, 0.3));
     left: 0;
     top: 0;
-    z-index: 99;
-    transition: .4s all;
+    z-index: 999;
+    transition: opacity .4s, visibility .4s;
     opacity: 0;
     visibility: hidden;
     overflow: auto;
     padding: 20px;
+    pointer-events: none;
 }
 .popup-open{
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 .popup__close{
     position: absolute;
@@ -582,6 +585,30 @@ ul{
     background: #fff;
     color: #DF7517;
 }
+.page__tabs-item {
+    display: inline-block;
+    font-size: 25px;
+    line-height: 30px;
+    margin-top: 30px;
+    background: #fff;
+    margin-right: 25px;
+    border-radius: 40px;
+    white-space: nowrap;
+    padding: 17px 30px;
+    cursor: pointer;
+}
+.page__tabs-item:hover{
+    background: #F8D5B6
+}
+.page__tabs-item.active{
+    background: #DF7517;
+    color: #fff;
+}
+.page__tabs-item:last-child{
+    margin-right: 0;
+}
+
+
 
 
 .header{
@@ -983,7 +1010,7 @@ ul{
     transform: scale(0);
     border-radius: 50%;
     transition: .4s all;
-    animation: pulse 2s linear infinite;
+    /* animation: pulse 2s linear infinite; */
     animation-fill-mode: both;
 }
 .contact__inner-button::after{
@@ -1231,7 +1258,7 @@ ul{
     display: flex;
     justify-content: space-between;
     padding-bottom: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     border-bottom: 1px solid #E9E9E9
 }
 .digital__future-top__title {
@@ -1260,33 +1287,15 @@ ul{
     margin-bottom: 50px;
 }
 .digital__future-content__top-item {
-    margin-right: 30px;
     background: #F8F8FB;
-    border-radius: 35px;
-    font-size: 25px;
-    line-height: 30px;
-    color: #000000;
-    cursor: pointer;
-    display: inline-block;
-    padding: 17px 30px;
-    transition: .4s all;
 }
-.digital__future-content__top-item:hover{
-    background: #F8D5B6
-}
-.digital__future-content__top-item.active{
-    background: #DF7517;
-    color: #fff;
-}
-.digital__future-content__top-item:last-child{
-    margin-right: 0;
-}
-.digital__future-content__item {
+
+.tabs__content-item{
     display: none;
     opacity: 0;
     transition: opacity .4s;
 }
-.digital__future-content__item.active{
+.tabs__content-item.active{
     display: flex;
     opacity: 1;
     animation: show_block .2s linear forwards;
@@ -1613,8 +1622,84 @@ ul{
 
 
 
+/*****************
+    Locations
+******************/
+.locations {
+    padding: 0px 0 100px;
+}
+.locations__top {
+    padding: 140px 0 60px;
+    background: #F8F8FB;
+}
+.locations-text{
+    max-width: 620px;
+}
+.locations__content {
+    padding: 60px 0 100px;
+}
+.locations__content-wrapper {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 40px;
+}
+.locations__content-wrapper.active{
+    display: grid;
+}
+.locations__content-item {
+    border: 1px solid #E4E4E7;
+    border-radius: 20px;
+    padding: 30px;
+    background: #fff;
+}
+.locations__content-item__title {
+    font-size: 32px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+.locations__content-item__address {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+.locations__content-item__address img{
+    margin-right: 10px;
+    align-self: flex-start;
+}
+.locations__content-item__bottom {
+    display: flex;
+    width: 100%;
+    color: #000;
+    font-size: 20px;
+}
+.locations__content-item-phone{
+    margin-right: 60px;
+}
+.locations__content-item-phone,
+.locations__content-item-mail{
+    position: relative;
+    padding-left: 34px;
+}
 
-
+.locations__content-item-phone::before,
+.locations__content-item-mail::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+.locations__content-item-phone::before{
+    background-image: url("../images/locations__item-phone.svg");
+}
+.locations__content-item-mail::before{
+    background-image: url("../images/locations__item-mail.svg");
+}
 @media (max-width:1280px){
     .header__inner-title{
         font-size: 74px;
@@ -1647,16 +1732,28 @@ ul{
     /*****************
         About us
     ******************/
-    .digital__future-content__top-item{
+    .page__tabs-item{
         margin-right: 15px;
-        border-radius: 35px;
-        font-size: 20px;
-        line-height: 26px;
+        font-size: 22px;
+        line-height: 28px;
     }
     .expertise__items{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-gap: 30px;
+    }
+
+
+
+    /*****************
+        Locations
+    ******************/
+    .locations__content-item__bottom{
+        flex-direction: column;
+    }
+    .locations__content-item-phone{
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 }
 
@@ -2003,6 +2100,7 @@ ul{
     .digital__future-top{
         flex-direction: column;
         align-items: center;
+        margin-bottom: 50px;
     }
     .digital__future-top__title{
         margin-right: 0;
@@ -2012,12 +2110,15 @@ ul{
     .digital__future-top__content{
         max-width: none;
     }
-    .digital__future-content__top{
-        overflow-x: scroll;
+    .page__tabs{
+        overflow-x: auto;
     }
-    .digital__future-content__mobile{
-        width: 991px;
-        padding-bottom: 10px;
+    .mobile__oferflow{
+        display: flex;
+        padding-bottom: 15px;
+    }
+    .page__tabs-item{
+        margin-top: 0;
     }
     .digital__future-content__item{
         flex-direction: column;
@@ -2095,6 +2196,33 @@ ul{
     .vacancies__details-list{
         padding-left: 10px;
     }
+
+
+
+
+    /*****************
+        Locations
+    ******************/
+    .locations__content,
+    .locations{
+        padding-bottom: 80px;
+    }
+    .locations__top{
+        padding-top: 120px;
+    }
+    .locations-text{
+        margin-bottom: 30px;
+    }
+    .locations__content-wrapper{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+    .locations__content-item__title{
+        font-size: 32px;
+    }
+    .locations__content-item__address{
+        justify-content: unset;
+    }
 }
 
 @media (max-width:770px){
@@ -2157,13 +2285,10 @@ ul{
     .digital__future {
         padding: 90px 0 100px;
     }
-    .digital__future-content__top-item{
+    .page__tabs-item{
         font-size: 18px;
         line-height: 24px;
         padding: 15px 25px;
-    }
-    .digital__future-content__mobile{
-        width: 850px;
     }
     .expertise{
         padding: 100px 0 150px;
@@ -2207,6 +2332,27 @@ ul{
     .vacancies{
         padding: 110px 0 100px;
     }
+
+
+
+
+    /*****************
+        Locations
+    ******************/
+    .locations__top {
+        padding-top: 100px;
+    }
+    .locations__content,
+    .locations{
+        padding-bottom: 60px;
+    }
+    .locations__content-item__title{
+        font-size: 30px;
+    }
+    .locations__content-wrapper{
+        grid-gap: 30px;
+    }
+
 }
 
 
@@ -2473,13 +2619,10 @@ ul{
     .digital__future-content__top{
         margin-bottom: 20px;
     }
-    .digital__future-content__mobile{
-        width: 740px;
-    }
-    .digital__future-content__top-item {
+    .page__tabs-item{
         font-size: 16px;
         line-height: 19px;
-        padding: 9px 20px;
+        padding: 10px 20px;
         margin-right: 10px;
     }
     .digital__future-content__item-title{
@@ -2592,6 +2735,43 @@ ul{
     }
     .popup__content-file{
         margin-bottom: 15px;
+    }
+
+
+    /*****************
+        Locations
+    ******************/
+    .locations__top {
+        padding-top: 80px;
+        padding-bottom: 50px;
+    }
+    .locations-text,
+    .locations__content-item__address{
+        font-size: 16px;
+        line-height: 135%;
+    }
+    .locations{
+        padding-bottom: 40px;
+    }
+    .locations__content{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .locations__content-item__title{
+        font-size: 24px;
+    }
+    .locations__content-item__address{
+        margin-bottom: 20px;
+    }
+    .locations__content-item__bottom{
+        font-size: 18px;
+        line-height: 135%;
+    }
+    .locations__content-wrapper{
+        grid-gap: 10px;
+    }
+    .locations__content-item{
+        padding: 25px;
     }
     
 }
