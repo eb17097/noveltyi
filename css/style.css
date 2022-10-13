@@ -558,7 +558,7 @@ ul{
 .page__block-text p{
     margin-bottom: 25px;
 }
-.career__block-text p:last-child{
+.page__block-text p:last-child{
     margin-bottom: 0;
 }
 .circle__button{
@@ -1010,7 +1010,7 @@ ul{
     transform: scale(0);
     border-radius: 50%;
     transition: .4s all;
-    /* animation: pulse 2s linear infinite; */
+    animation: pulse 2s linear infinite;
     animation-fill-mode: both;
 }
 .contact__inner-button::after{
@@ -1578,14 +1578,14 @@ ul{
 .popup__file-resume {
     border: 1px solid #F8D5B6;
     border-radius: 40px;
-    display: flex;
-    opacity: 0;
+    display: none;
     pointer-events: none;
     align-items: center;
+    justify-content: space-between;
     padding: 6px 12px 5px;
 }
 .popup__file-resume.show{
-    opacity: 1;
+    display: flex;
     pointer-events: auto;
 }
 .popup__file-name {
@@ -1700,6 +1700,65 @@ ul{
 .locations__content-item-mail::before{
     background-image: url("../images/locations__item-mail.svg");
 }
+
+
+
+
+
+/*****************
+    Invester relations
+******************/
+.propositions {
+    padding: 150px 0;
+}
+.propositions__text {
+    max-width: 840px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.propositions__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.propositions__items-item {
+    width: 31%;
+}
+.propositions__item-img {
+    margin-right: 0;
+    display: block;
+    margin-bottom: 15px;
+    max-width: 60px;
+}
+.propositions__item-img img{
+    display: block;
+    width: 100%;
+}
+.propositions__item-top{
+    margin-bottom: 20px;
+}
+.propositions__items-title {
+    font-size: 30px;
+}
+.propositions__item-text {
+    font-size: 20px;
+    opacity: .7;
+}
+.technology{
+    background: #F8F8FB;
+    padding: 150px 0 200px;
+}
+.technology__block-info{
+    max-width: 630px;
+    margin-right: 20px;
+}
+.technology__block-img {
+    margin-right: 0;
+}
+
+
+
+
 @media (max-width:1280px){
     .header__inner-title{
         font-size: 74px;
@@ -2223,6 +2282,29 @@ ul{
     .locations__content-item__address{
         justify-content: unset;
     }
+
+
+
+    /*****************
+        Invester relations
+    ******************/
+    .propositions {
+        padding: 120px 0;
+    }
+    .propositions__items-item{
+        margin-bottom: 30px;
+        width: 48%;
+    }
+    .propositions__items-item:last-child{
+        margin-bottom: 0;
+    }
+    .propositions__items-title{
+        font-size: 30px;
+    }
+    .technology{
+        padding: 120px 0 150px;
+    }
+
 }
 
 @media (max-width:770px){
@@ -2351,6 +2433,35 @@ ul{
     }
     .locations__content-wrapper{
         grid-gap: 30px;
+    }
+
+
+
+
+    /*****************
+        Invester relations
+    ******************/
+    .propositions {
+        padding: 100px 0;
+    }
+    .propositions__items-item{
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .propositions__item-top{
+        display: flex;
+        align-items: center;
+    }
+    .propositions__items-title{
+        margin-bottom: 0;
+        font-size: 30px;
+    }
+    .propositions__item-img{
+        margin-bottom: 0;
+        margin-right: 30px;
+    }
+    .technology {
+        padding: 100px 0 120px;
     }
 
 }
@@ -2773,14 +2884,49 @@ ul{
     .locations__content-item{
         padding: 25px;
     }
+
+
+
+
+    /*****************
+        Invester relations
+    ******************/
+    .propositions {
+        padding: 80px 0;
+    }
+    .propositions__text{
+        margin-bottom: 40px;
+        font-size: 16px;
+        line-height: 135%;
+    }
+    .propositions__items-title{
+        font-size: 24px;
+        margin-bottom: 0;
+    }
+    .propositions__item-text{
+        font-size: 16px;
+        line-height: 135%;
+    }
+    .technology {
+        padding: 80px 0;
+    }
     
 }
-@media (max-width:414px) {
+@media (max-width:390px) {
     .header__inner-title--main span{
         font-size: 65px;
         line-height: 72px;
     }
     .digitalnovelty__wrapper-link::after {
+        display: none;
+    }
+    .footer__item-socnetwork{
+        justify-content: space-around;
+    }
+    .footer__socnetwork-item{
+        margin-right: 0;
+    }
+    .footer__socnetwork-link::after{
         display: none;
     }
 }
