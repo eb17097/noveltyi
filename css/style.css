@@ -1767,7 +1767,6 @@ ul{
     Industrie
 ******************/
 
-
 .industries__white {
     background: #fff;
 }
@@ -1855,6 +1854,108 @@ ul{
 }
 
 
+
+
+/*****************
+    Offerings
+******************/
+
+.section_offerings {
+    padding: 150px 0 140px;
+    position: relative;
+    width: 100%;
+}
+.section_offerings::before,
+.section_offerings::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+}
+.section_offerings::before{
+    left: 0;
+    background: #F8F8FB;
+    width: 43%;
+}
+.section_offerings::after{
+    right: 0;
+    width: 47%;
+    background: #fff;
+}
+.offerings__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.offerings__wrapper-tabs {
+    max-width: 475px;
+    width: 100%;
+    margin-right: 30px;
+}
+.offerings__tab-item{
+    white-space: normal;
+    margin-right: 0;
+}
+.offerings__tab-content {
+    max-width: 690px;
+    width: 100%;
+}
+.offerings__tab-content.active{
+    display: block;
+}
+.offerings__tab-title {
+    margin-bottom: 30px;
+}
+.offerings__tab-text{
+    margin-bottom: 40px;
+}
+.offerings__tab-text p{
+    margin-bottom: 25px;
+}
+.offerings__tab-text p:last-child{
+    margin-bottom: 0;
+}
+.offerings__tab-img {
+    width: 100%;
+}
+.offerings__tab-img img{
+    width: 100%;
+    display: block;
+    border-radius: 30px;
+}
+
+.offerings__bottom {
+    padding: 100px 0 80px;
+}
+.offerings__bottom-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.offerings__bottom-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.offerings__bottom-arrow img{
+    display: block;
+    width: 100%;
+}
+.offerings__bottom-item--prev .offerings__bottom-arrow{
+    margin-right: 10px;
+}
+.offerings__bottom-item--next .offerings__bottom-arrow{
+    margin-left: 10px;
+    transform: rotate(180deg);
+}
+.offerings__bottom-text {
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #DF7517;
+}
+
+
 @media (max-width:1280px){
     .header__inner-title{
         font-size: 74px;
@@ -1915,6 +2016,29 @@ ul{
     .industries__info-text{
         max-width: 630px;
     }
+
+
+
+
+    /*****************
+        Offerings
+    ******************/
+    .offerings__bottom-text{
+        font-size: 22px;
+    }
+}
+
+
+
+@media (max-width:1080px){
+
+    /*****************
+        Offerings
+    ******************/
+    .section_offerings::before{
+        width: 50%;
+    }
+
 }
 
 
@@ -2449,6 +2573,50 @@ ul{
     .industries__block--reverse .page__block-info{
         margin-right: 0;
     }
+
+
+
+
+    /*****************
+        Offerings
+    ******************/
+    .section_offerings{
+        padding: 50px 0 100px;
+    }
+    .section_offerings::before {
+        width: 100%;
+        height: 162px;
+    }
+    .section_offerings::after{
+        display: none;
+    }
+    .offerings__wrapper{
+        flex-direction: column;
+    }
+    .offerings__wrapper-tabs{
+        max-width: 100%;
+        margin-bottom: 50px;
+        padding: 0 0 35px;
+        margin-right: 0;
+    }
+    .offerings__tab-item{
+        white-space: nowrap;
+    }
+    .offerings__tab-content{
+        margin: 0 auto;
+    }
+    .offerings__bottom{
+        padding: 80px 0;
+    }
+    .offerings__bottom-wrapper{
+        flex-direction: column;
+    }
+    .offerings__bottom-item--prev{
+        margin-bottom: 30px;
+    }
+    .offerings__bottom-text{
+        font-size: 22px;
+    }
 }
 
 @media (max-width:770px){
@@ -2639,6 +2807,20 @@ ul{
     }
     .industries__row-item__title{
         font-size: 30px;
+    }
+
+
+    /*****************
+        Offerings
+    ******************/
+    .section_offerings{
+        padding: 50px 0 80px;
+    }
+    .section_offerings::before {
+        height: 154px;
+    }
+    .offerings__bottom{
+        padding: 60px 0 80px;
     }
 
 }
@@ -3126,6 +3308,32 @@ ul{
     .industries__row-item-text{
         font-size: 16px;
         line-height: 135%;
+    }
+
+
+    /*****************
+        Offerings
+    ******************/
+    .section_offerings{
+        padding: 40px 0 40px;
+    }
+    .section_offerings::before {
+        height: 118px;
+    }
+    .offerings__wrapper-tabs{
+        padding-bottom: 26px;
+        margin-bottom: 40px;
+    }
+    .offerings__tab-text{
+        font-size: 16px;
+        line-height: 135%;
+    }
+    .offerings__bottom{
+        padding: 40px 0 80px;
+    }
+    .offerings__bottom-text{
+        font-size: 18px;
+        line-height: 21px;
     }
 }
 @media (max-width:390px) {
